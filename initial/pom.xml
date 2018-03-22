@@ -16,6 +16,7 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<docker.image.prefix>pjsundhar</docker.image.prefix>
+		<docker.maven.version>1.3.6</docker.maven.version>
 	</properties>
 
 	<dependencies>
@@ -40,9 +41,20 @@
 			<plugin>
 				<groupId>com.spotify</groupId>
 				<artifactId>dockerfile-maven-plugin</artifactId>
-				<version>1.3.6</version>
+				<version>${docker.maven.version}</version>
+				<executions>
+					<execution>
+						<id>default</id>
+						<phase>install</phase>
+						<goals>
+							<goal>build</goal>
+							<goal>push</goal>
+						</goals>
+					</execution>
+				</executions>
 				<configuration>
 					<repository>${docker.image.prefix}/${project.artifactId}</repository>
+					<tag>${project.version}</tag>
 					<buildArgs>
 						<JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
 					</buildArgs>
