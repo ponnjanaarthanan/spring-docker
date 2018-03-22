@@ -1,10 +1,20 @@
 pipeline {
   agent any
   stages {
-    stage('Build') {
+    stage('Initialize') {
       steps {
-        echo 'Blue Ocean Pipeline'
+        sh '''echo "PATH = ${PATH}"
+echo "M2_HOME = ${M2_HOME}"'''
       }
     }
+    stage('Build') {
+      steps {
+        sh 'mvn clean build'
+      }
+    }
+  }
+  environment {
+    maven = 'Maven 3.3.9'
+    jdk = 'jdk8'
   }
 }
