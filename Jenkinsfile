@@ -10,7 +10,7 @@ echo "M2_HOME = ${M2_HOME}"'''
     stage('Build') {
       steps {
         sh '''cd initial
-mvn clean build'''
+${M2_HOME}/bin/mvn clean build'''
       }
     }
   }
