@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Initialize') {
       steps {
-        sh '''source /etc/profile
+        sh '''source "/etc/profile"
 echo "PATH = ${PATH}"
 echo "M2_HOME = ${M2_HOME}"'''
       }
