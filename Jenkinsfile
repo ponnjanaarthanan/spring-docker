@@ -6,7 +6,9 @@ pipeline {
         sh '''source /etc/profile.d/exports.sh
 echo "PATH = ${PATH}"
 echo "M2_HOME = ${M2_HOME}"
+pwd
 cd initial
+pwd
 ${M2_HOME}/bin/mvn clean build'''
       }
     }
