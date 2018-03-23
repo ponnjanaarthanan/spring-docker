@@ -1,16 +1,12 @@
 pipeline {
   agent any
   stages {
-    stage('Initialize') {
+    stage('Build') {
       steps {
         sh '''source /etc/profile.d/exports.sh
 echo "PATH = ${PATH}"
-echo "M2_HOME = ${M2_HOME}"'''
-      }
-    }
-    stage('Build') {
-      steps {
-        sh '''cd initial
+echo "M2_HOME = ${M2_HOME}"
+cd initial
 ${M2_HOME}/bin/mvn clean build'''
       }
     }
