@@ -20,8 +20,4 @@ ${M2_HOME}/bin/mvn install'''
       }
     }
   }
-  environment {
-    maven = 'Maven 3.3.9'
-    jdk = 'jdk8'
-  }
 }
